@@ -388,26 +388,26 @@ h3 {
 
 .um {
   height: 40%;
-  -webkit-mask: url("https://i.imgur.com/70vA6k2.png") center/80% 95%;
-  mask: url("https://i.imgur.com/70vA6k2.png") center/80% 95%;
+  -webkit-mask: url("assets/esq1.png") center/80% 95%;
+  mask: url("assets/esq1.png") center/80% 95%;
 }
 
 .dois {
   height: 60%;
-  -webkit-mask: url("https://i.imgur.com/3WuDcEw.png") center/90% 95%;
-  mask: url("https://i.imgur.com/3WuDcEw.png") center/80% 95%;
+  -webkit-mask: url("assets/esq2.png") center/90% 95%;
+  mask: url("assets/esq2.png") center/80% 95%;
 }
 
 .tres {
   height: 50%;
-  -webkit-mask: url("https://i.imgur.com/Hajuk3H.png") center/90% 95%;
-  mask: url("https://i.imgur.com/Hajuk3H.png") center/80% 95%;
+  -webkit-mask: url("assets/dir1.png") center/90% 95%;
+  mask: url("assets/dir1.png") center/80% 95%;
 }
 
 .quatro {
   height: 50%;
-  -webkit-mask: url("https://i.imgur.com/HiEfFNy.png") center/90% 95%;
-  mask: url("https://i.imgur.com/HiEfFNy.png") center/80% 95%;
+  -webkit-mask: url("assets/dir2.png") center/90% 95%;
+  mask: url("assets/dir2.png") center/80% 95%;
 }
 
 .um,
