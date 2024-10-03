@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Meu Projeto</title>
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <!-- Link para o CSS -->
+    <link rel="stylesheet" href="style.css" />
+    <style>
+      input::-webkit-outer-spin-button,
+      input::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+      }
+    </style>
+    <link
+      href="https://fonts.googleapis.com/css?family=Annie Use Your Telescope"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+    <main>
+      <div id="wrapperConfigs">
+        <div class="image-buttons">
+          <input type="image" class="foto-00" src="/assets/luffy.png" />
+          <input type="image" class="foto-01" src="/assets/zoro.jpeg" />
+          <input type="image" class="foto-02" src="/assets/jinbe.jpeg" />
+          <input type="image" class="foto-03" src="/assets/gado.jpeg" />
+          <input type="image" class="foto-04" src="/assets/linda.jpeg" />
+          <input type="image" class="foto-05" src="/assets/god.jpeg" />
+          <input type="image" class="foto-06" src="/assets/sunny.jpeg" />
+          <input type="image" class="foto-07" src="/assets/nami.png" />
+          <input type="image" class="foto-08" src="/assets/bixo.jpeg" />
+          <input type="image" class="foto-09" src="/assets/buxa.png" />
+          <input type="image" class="foto-10" src="/assets/mito.png" />
+          <input type="image" class="foto-11" src="/assets/teach.png" />
+          <input type="image" class="foto-12" src="/assets/vilao.png" />
+          <input type="image" class="foto-13" src="/assets/mulher.png" />
+          <input type="image" class="foto-14" src="/assets/kuina.png" />
+          <input type="image" class="foto-15" src="/assets/1v1.png" />
+          <input type="image" class="foto-16" src="/assets/law.png" />
+          <input type="image" class="foto-17" src="/assets/gate.png" />
+        </div>
+
+        <div id="formulario">
+          <form>
+            <fieldset>
+              <legend>📄Content</legend>
+              <input
+                type="text"
+                id="inputNome"
+                maxlength="40"
+                placeholder="Name"
+              />
+              <input
+                type="number"
+                id="inputRecompensa"
+                max="999999999999"
+                placeholder="Bounty"
+              />
+              <select id="inputDoA">
+                <option value="DEAD OR ALIVE" selected>DEAD OR ALIVE</option>
+                <option value="ONLY ALIVE">ONLY ALIVE</option>
+                <option value="ONLY DEAD">ONLY DEAD</option>
+              </select>
+              <input
+                type="file"
+                id="imgUpload"
+                id="inputFile"
+                accept=".png, .jpg, .jpeg"
+              />
+            </fieldset>
+            <fieldset>
+              <legend>⚙️Settings</legend>
+              <input
+                id="inputCor"
+                type="input"
+                placeholder="Color (HEXADECIMAL)"
+              />
+              <div class="toggle-button toggle-button--tuli">
+                <label
+                  ><input
+                    id="inputPapel"
+                    type="checkbox"
+                    class="inline cfgSelect"
+                    checked="true"
+                    value="SP"
+                  />Show Paper</label
+                >
+              </div>
+              <label
+                ><input
+                  id="inputAbreviacoes"
+                  type="checkbox"
+                  class="inline cfgSelect"
+                  checked="true"
+                  value="AN"
+                />Abreviate Names</label
+              >
+            </fieldset>
+          </form>
+        </div>
+        <!-- FORMULARIO -->
+      </div>
+      <div id="container">
+        <div id="papel"></div>
+        <div class="lines"></div>
+        <div class="titulo" id="containerTitulo">
+          <h1 id="placeholderTitulo">.</h1>
+          <h1 id="txtTitulo">WANTED</h1>
+        </div>
+        <div class="foto">
+          <img id="foto-cartaz" src="assets/eu.jpg" />
+          <span>image by bryanfavr</span>
+        </div>
+        <div class="detalhes">
+          <div class="DoA">
+            <h3 id="doaTxt">DEAD OR ALIVE</h3>
+          </div>
+          <div class="nome" id="containerNomes"></div>
+          <div class="recompensa">
+            <div class="berry"></div>
+            <h3>0</h3>
+          </div>
+          <div class="info">
+            <p>
+              KONO SAKUHIN HA FICTION DETHUNODE JITSUZAISURU JINBUTSU DANTAI
+              SONOTA NO SOSHIKI TO DOITSU NO MEISOU GA GEKICHU NI TOUJYOU
+              SHITATOSHITEMO JITSUZAI NO MONOTAHA ISSAI MUKANKEIDETH.
+            </p>
+            <h3>MARINE</h3>
+          </div>
+          <div class="esquerdo">
+            <div class="um"></div>
+            <div class="dois"></div>
+          </div>
+          <div class="direito">
+            <div class="tres"></div>
+            <div class="quatro"></div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <svg>
+      <defs>
+        <filter id="papelAnime">
+          <feTurbulence
+            type="fractalNoise"
+            baseFrequency="0.02"
+            result="turbulence"
+            seed="2"
+          />
+          <feDisplacementMap in="SourceGraphic" in2="turbulence" scale="10" />
+          <feComposite operator="in" in2="SourceGraphic" />
+        </filter>
+      </defs>
+    </svg>
+  </body>
+</html>

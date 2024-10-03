@@ -1,0 +1,428 @@
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  --borda-papel: #462b18;
+  --cor-letras: #462b18;
+  --border-color: #e70;
+  --font-size-nome: 8em;
+  --alphaShadow: 0.6;
+  --show-filtro: 0;
+  --blend-filtro: multiply;
+  --sat-filtro: 70%;
+  --con-filtro: 85%;
+}
+
+body {
+  font-family: "Times New Roman", Times, serif;
+  padding: 0;
+  margin: 0;
+  max-width: 100vw;
+  max-height: 100vh;
+  overflow: hidden;
+}
+
+main {
+  z-index: -1;
+  background-color: #cccccc;
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  overflow: auto;
+  padding: 50px;
+}
+
+/* WRAPPER CONFIGS */
+
+#wrapperConfigs {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  width: 30%;
+  flex-wrap: wrap;
+}
+
+/*  FORMULARIO: INICIO  */
+
+#formulario {
+  width: 100%;
+  background: #ffffff;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+
+input,
+select {
+  width: 100%;
+}
+
+label {
+  display: block;
+}
+
+.inline {
+  width: unset;
+  margin: 0 0.5em 0 0;
+  vertical-align: middle;
+}
+
+/*  FORMULARIO: FIM */
+
+.image-buttons {
+  margin: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: stretch;
+  flex-wrap: wrap;
+}
+
+.image-buttons input {
+  transition: 0.3s;
+  filter: grayscale(100%);
+  z-index: 1;
+  position: relative;
+  border: 0.2rem solid #fafafa;
+  border-radius: 200px;
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+}
+
+.image-buttons input,
+.foto img,
+.phLinha,
+.foto span,
+label {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+/* EFEITOS BOTÃO*/
+.image-buttons input:hover {
+  filter: none;
+  box-shadow: 4px 4px rgba(0, 0, 0, 0.1);
+  transform: translate(-2%, -2%);
+}
+
+.image-buttons input:focus {
+  transform: translate(0%, 0%);
+  filter: none;
+  box-shadow: none;
+  outline: none;
+  border: 0.2rem solid var(--border-color);
+}
+
+.foto {
+  margin-bottom: 10px;
+  position: relative;
+  width: 85.5%;
+  height: 340px;
+  border: 2.5px solid var(--cor-letras);
+}
+
+.foto span {
+  text-shadow: 1px 0 #000, -1px 0 #000, 0 1px #000, 0 -1px #000;
+  color: #fff;
+  opacity: 0;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  top: 1%;
+  left: 70%;
+  font-size: 1.2rem;
+  font-weight: 900;
+  font-family: "Annie Use Your Telescope", serif;
+  -webkit-transition: 0.3s ease-in-out;
+  transition: 0.3s ease-in-out;
+}
+
+.foto img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  mix-blend-mode: var(--blend-filtro);
+  filter: saturate(var(--sat-filtro)) contrast(var(--con-filtro));
+}
+
+.creditos:hover + span,
+.foto span:hover {
+  opacity: 100%;
+}
+
+h1,
+h3 {
+  margin: 0;
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: 900;
+  transform: scale(1, 1.3);
+  white-space: nowrap;
+}
+
+h3 {
+  font-size: 2.8rem;
+}
+
+.DoA h3 {
+  text-align: center;
+  letter-spacing: 0.2rem;
+  word-spacing: 1.3rem;
+}
+
+#container {
+  color: var(--cor-letras);
+  z-index: +1;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 20px 20px 30px;
+  width: 550px;
+}
+
+#container::after {
+  z-index: -2;
+  content: "";
+  position: absolute;
+  box-shadow: 0 3px 20px rgba(0, 0, 0, var(--alphaShadow));
+  width: 98%;
+  height: 98%;
+}
+
+#papel {
+  z-index: -1;
+  filter: url(#papelAnime);
+  position: absolute;
+  border: 2.5px solid var(--borda-papel);
+  box-shadow: 0 0 125px #8f5922 inset;
+}
+
+.foto,
+#papel {
+  background: #fffef0;
+  background-image: url(data:image/png;base64,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);
+}
+
+.foto,
+.titulo,
+.detalhes {
+  overflow: hidden;
+}
+
+.titulo {
+  position: relative;
+  width: 100%;
+  margin-bottom: 5px;
+}
+
+.titulo h1 {
+  font-size: 9em;
+  line-height: 80%;
+}
+
+#placeholderTitulo {
+  visibility: hidden;
+}
+
+#txtTitulo {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+}
+
+.detalhes {
+  display: grid;
+  grid-template-columns: 0.16fr 1fr 1fr 0.16fr;
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+}
+
+.DoA {
+  grid-area: 1 / 2 / 2 / 4;
+}
+
+.nome {
+  grid-area: 2 / 2 / 3 / 4;
+  width: 100%;
+  display: inline-flex;
+  flex-direction: column;
+  margin: 0;
+}
+
+.container-linha {
+  padding: 0;
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.phLinha {
+  visibility: hidden;
+  line-height: 80%;
+  margin: 0;
+  font-size: var(--font-size-nome);
+}
+
+.txtLinha {
+  line-height: 80%;
+  z-index: +1;
+  font-size: var(--font-size-nome);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  word-spacing: 2rem;
+  letter-spacing: 0.5rem;
+}
+
+.recompensa {
+  grid-area: 3 / 2 / 4 / 4;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.recompensa .berry {
+  flex-shrink: 0;
+  background: var(--cor-letras);
+  height: 100%;
+  width: 10%;
+  margin-right: 10px;
+  -webkit-mask: url("https://upload.wikimedia.org/wikipedia/commons/f/fa/Berrysymbol.svg")
+    center/100% 100%;
+  mask: url("https://upload.wikimedia.org/wikipedia/commons/f/fa/Berrysymbol.svg")
+    center/100% 100%;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+}
+
+.recompensa h3 {
+  transform: translate(0, -4%);
+  margin: -10px 0 -10px 0;
+  font-size: 3rem;
+  letter-spacing: 0.4rem;
+  font-family: "Annie Use Your Telescope", serif;
+  &:after {
+    content: "—";
+  }
+}
+
+.info {
+  grid-area: 4 / 2 / 5 / 5;
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.info p {
+  font-size: 0.6rem;
+  flex: 1;
+  text-align: justify;
+  font-weight: 900;
+  text-transform: uppercase;
+  font-family: "Annie Use Your Telescope", serif;
+}
+
+.info h3 {
+  margin-left: 8px;
+  margin-right: 12px;
+}
+
+.info p,
+.info h3 {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.esquerdo {
+  grid-area: 1 / 1 / 5 / 2;
+  margin-right: 5px;
+}
+.direito {
+  grid-area: 1 / 4 / 4 / 5;
+  margin-left: 5px;
+}
+
+.esquerdo .direito {
+  margin: auto 0;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.DoA,
+.nome,
+.info,
+.recompensa,
+.esquerdo,
+.direito {
+  min-width: 0;
+  overflow: hidden;
+}
+
+.esquerdo div,
+.direito div {
+  width: 100%;
+}
+
+.um {
+  height: 40%;
+  -webkit-mask: url("https://i.imgur.com/70vA6k2.png") center/80% 95%;
+  mask: url("https://i.imgur.com/70vA6k2.png") center/80% 95%;
+}
+
+.dois {
+  height: 60%;
+  -webkit-mask: url("https://i.imgur.com/3WuDcEw.png") center/90% 95%;
+  mask: url("https://i.imgur.com/3WuDcEw.png") center/80% 95%;
+}
+
+.tres {
+  height: 50%;
+  -webkit-mask: url("https://i.imgur.com/Hajuk3H.png") center/90% 95%;
+  mask: url("https://i.imgur.com/Hajuk3H.png") center/80% 95%;
+}
+
+.quatro {
+  height: 50%;
+  -webkit-mask: url("https://i.imgur.com/HiEfFNy.png") center/90% 95%;
+  mask: url("https://i.imgur.com/HiEfFNy.png") center/80% 95%;
+}
+
+.um,
+.dois,
+.tres,
+.quatro {
+  flex-shrink: 0;
+  margin: 0 auto;
+  background: var(--cor-letras);
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  background-repeat: no-repeat;
+}
+
+.line {
+  position: absolute;
+  background-color: var(--borda-papel);
+}
