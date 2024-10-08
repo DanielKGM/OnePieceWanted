@@ -5,12 +5,6 @@ document.addEventListener("DOMContentLoaded", function () {
     if ($(this).val() == "SP") {
       togglePapel();
     }
-    /*
-      if($(this).val()=='AN'){
-        gerarNome($("#inputNome").val(), 20, 3);
-        ScrollHeight();
-      }
-      */
   });
 
   $("#imgUpload").on("input", function () {
@@ -66,6 +60,15 @@ document.addEventListener("DOMContentLoaded", function () {
       r.style.setProperty("--blend-filtro", "multiply");
     } else {
       r.style.setProperty("--blend-filtro", "unset");
+    }
+  });
+
+  $("#inputTexture").change(function () {
+    let r = document.querySelector(":root");
+    if ($(this).is(":checked")) {
+      r.style.setProperty("--textura", 'url("assets/textura.png")');
+    } else {
+      r.style.setProperty("--textura", "none");
     }
   });
 

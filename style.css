@@ -13,6 +13,7 @@
   --con-filtro: 85%;
   --cor-papel: #fffef0;
   --shadow-papel: #8f5922;
+  --textura: url("assets/textura.png");
 }
 
 body {
@@ -159,6 +160,10 @@ h3 {
   align-items: center;
   padding: 40px 20px 20px 30px;
   width: 550px;
+  mask-image: url("https://res.cloudinary.com/ez-nettools/image/upload/v1635183100/parchment-hand-painted_zfdfpt.avif");
+  mask-size: 100% 100%; /* Estica a máscara para caber dentro da div */
+  mask-repeat: no-repeat; /* Não repete a máscara */
+  background-color: red;
 }
 
 #container::after {
@@ -166,14 +171,24 @@ h3 {
   content: "";
   position: absolute;
   box-shadow: 0 3px 20px rgba(0, 0, 0, var(--alphaShadow));
-  width: 98%;
-  height: 98%;
+  width: 100%;
+  height: 100%;
 }
 
 #papel {
   z-index: -1;
-  filter: url(#papelAnime);
+  mask-image: url("https://res.cloudinary.com/ez-nettools/image/upload/v1635183100/parchment-hand-painted_zfdfpt.avif");
+  mask-size: 100% 100%; /* Estica a máscara para caber dentro da div */
+  mask-repeat: no-repeat; /* Não repete a máscara */
+  /*filter: url(#papelAnime);*/
+  /*-webkit-mask-image: url("https://res.cloudinary.com/ez-nettools/image/upload/v1635183100/parchment-hand-painted_zfdfpt.avif");
+  -webkit-mask-size: 100% 100%;
+  -webkit-mask-repeat: no-repeat;*/
   position: absolute;
+  top: 0;
+  left: 0;
+  width: 80%; /* Defina uma largura apropriada */
+  height: 80%; /* Defina uma altura apropriada */
   border: 2.5px solid var(--borda-papel);
   box-shadow: 0 0 125px var(--shadow-papel) inset;
 }
@@ -181,7 +196,7 @@ h3 {
 .foto,
 #papel {
   background: var(--cor-papel);
-  background-image: url(assets/textura.png);
+  background-image: var(--textura);
 }
 
 .foto,

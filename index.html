@@ -102,7 +102,9 @@
                 checked="true"
                 value="SP"
               />
-              <label class="form-check-label" for="inputPapel">Paper</label>
+              <label class="form-check-label" for="inputPapel"
+                >Show Paper?</label
+              >
             </div>
             <div class="form-check form-switch">
               <input
@@ -114,7 +116,7 @@
                 value="AN"
               />
               <label class="form-check-label" for="inputAbreviacoes"
-                >Abbreviate</label
+                >Abbreviate Name?</label
               >
             </div>
             <div class="form-check form-switch">
@@ -126,9 +128,23 @@
                 checked="true"
               />
               <label class="form-check-label" for="inputAbreviacoes"
-                >Multiply</label
+                >Blend Picture?</label
               >
             </div>
+
+            <div class="form-check form-switch">
+              <input
+                id="inputTexture"
+                type="checkbox"
+                role="switch"
+                class="form-check-input cfgSelect"
+                checked="true"
+              />
+              <label class="form-check-label" for="inputAbreviacoes"
+                >Texturize Paper?</label
+              >
+            </div>
+
             <input
               type="color"
               id="inputCor"
@@ -208,19 +224,21 @@
         </div>
       </div>
     </main>
-    <svg>
-      <defs>
-        <filter id="papelAnime">
-          <feTurbulence
+    <!--
+      <svg>
+        <defs>
+          <filter id="papelAnime">
+            <feTurbulence
             type="fractalNoise"
             baseFrequency="0.02"
             result="turbulence"
             seed="2"
-          />
-          <feDisplacementMap in="SourceGraphic" in2="turbulence" scale="10" />
-          <feComposite operator="in" in2="SourceGraphic" />
-        </filter>
-      </defs>
-    </svg>
+            />
+            <feDisplacementMap in="SourceGraphic" in2="turbulence" scale="10" />
+            <feComposite operator="in" in2="SourceGraphic" />
+          </filter>
+        </defs>
+      </svg>
+      -->
   </body>
 </html>
