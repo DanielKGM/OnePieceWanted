@@ -6,17 +6,23 @@
     <title>Meu Projeto</title>
     <!-- Bootstrap CSS -->
     <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
       rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      rel="stylesheet"
+      crossorigin="anonymous"
     />
     <!-- Link para o CSS -->
     <link rel="stylesheet" href="style.css" />
-    <style>
-      input::-webkit-outer-spin-button,
-      input::-webkit-inner-spin-button {
-        -webkit-appearance: none;
-      }
-    </style>
     <link
       href="https://fonts.googleapis.com/css?family=Annie Use Your Telescope"
       rel="stylesheet"
@@ -49,62 +55,117 @@
           <input type="image" class="foto-17" src="assets/gate.png" />
         </div>
 
-        <div id="formulario">
+        <div id="formulario" class="container-fluid">
           <form>
-            <fieldset>
-              <legend>📄Content</legend>
+            <div class="input-group">
+              <span class="input-group-text">
+                <i class="fas fa-user"></i>
+              </span>
               <input
                 type="text"
                 id="inputNome"
                 maxlength="40"
                 placeholder="Name"
+                class="form-control"
               />
+            </div>
+            <div class="input-group">
+              <span class="input-group-text">
+                <i class="fas fa-dollar"></i>
+              </span>
               <input
                 type="number"
                 id="inputRecompensa"
                 max="999999999999"
                 placeholder="Bounty"
+                class="form-control"
               />
-              <select id="inputDoA">
-                <option value="DEAD OR ALIVE" selected>DEAD OR ALIVE</option>
-                <option value="ONLY ALIVE">ONLY ALIVE</option>
-                <option value="ONLY DEAD">ONLY DEAD</option>
-              </select>
+            </div>
+
+            <select class="form-select" id="inputDoA">
+              <option value="DEAD OR ALIVE" selected>DEAD OR ALIVE</option>
+              <option value="ONLY ALIVE">ONLY ALIVE</option>
+              <option value="ONLY DEAD">ONLY DEAD</option>
+            </select>
+            <input
+              class="form-control"
+              type="file"
+              id="imgUpload"
+              accept=".png, .jpg, .jpeg"
+            />
+            <div class="form-check form-switch">
               <input
-                type="file"
-                id="imgUpload"
-                id="inputFile"
-                accept=".png, .jpg, .jpeg"
+                id="inputPapel"
+                type="checkbox"
+                role="switch"
+                class="form-check-input cfgSelect"
+                checked="true"
+                value="SP"
               />
-            </fieldset>
-            <fieldset>
-              <legend>⚙️Settings</legend>
+              <label class="form-check-label" for="inputPapel">Paper</label>
+            </div>
+            <div class="form-check form-switch">
               <input
-                id="inputCor"
-                type="input"
-                placeholder="Color (HEXADECIMAL)"
+                id="inputAbreviacoes"
+                type="checkbox"
+                role="switch"
+                class="form-check-input cfgSelect"
+                checked="true"
+                value="AN"
               />
-              <div class="toggle-button toggle-button--tuli">
-                <label
-                  ><input
-                    id="inputPapel"
-                    type="checkbox"
-                    class="inline cfgSelect"
-                    checked="true"
-                    value="SP"
-                  />Show Paper</label
-                >
-              </div>
-              <label
-                ><input
-                  id="inputAbreviacoes"
-                  type="checkbox"
-                  class="inline cfgSelect"
-                  checked="true"
-                  value="AN"
-                />Abreviate Names</label
+              <label class="form-check-label" for="inputAbreviacoes"
+                >Abbreviate</label
               >
-            </fieldset>
+            </div>
+            <div class="form-check form-switch">
+              <input
+                id="inputBlend"
+                type="checkbox"
+                role="switch"
+                class="form-check-input cfgSelect"
+                checked="true"
+              />
+              <label class="form-check-label" for="inputAbreviacoes"
+                >Multiply</label
+              >
+            </div>
+            <input
+              type="color"
+              id="inputCor"
+              class="input-cor form-control form-control-color"
+              title="Text color"
+            />
+            <input
+              type="color"
+              id="inputCorPapel"
+              class="input-cor form-control form-control-color"
+              title="Paper color"
+            />
+            <input
+              type="color"
+              id="inputShadowPapel"
+              class="input-cor form-control form-control-color"
+              title="Paper shadow"
+            />
+
+            <input
+              type="range"
+              class="form-range"
+              min="0"
+              max="100"
+              step="1"
+              value="85"
+              id="inputCon"
+            />
+            <input
+              type="range"
+              class="form-range"
+              min="0"
+              step="1"
+              max="100"
+              value="70"
+              id="inputSat"
+            />
           </form>
         </div>
         <!-- FORMULARIO -->
@@ -118,7 +179,6 @@
         </div>
         <div class="foto">
           <img id="foto-cartaz" src="assets/eu.jpg" />
-          <span>image by bryanfavr</span>
         </div>
         <div class="detalhes">
           <div class="DoA">

@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", function () {
       */
   });
 
-  $("#imgUpload").change(function () {
+  $("#imgUpload").on("input", function () {
     readURL(this);
   });
 
@@ -22,20 +22,51 @@ document.addEventListener("DOMContentLoaded", function () {
     ScrollHeight();
   });
 
-  $("#inputCor").on("keyup", function () {
+  $(".input-cor").on("input", function () {
     let val = $(this).val();
     if (/^#[0-9A-F]{6}$/i.test(val)) {
       let r = document.querySelector(":root");
-      r.style.setProperty("--cor-letras", val);
-    } else {
-      let r = document.querySelector(":root");
-      r.style.setProperty("--cor-letras", "#462b18");
+      let variavelCSS;
+
+      switch ($(this).attr("id")) {
+        case "inputCor":
+          r.style.setProperty("--borda-papel", val);
+          r.style.setProperty("--cor-letras", val);
+          break;
+        case "inputCorPapel":
+          r.style.setProperty("--cor-papel", val);
+          break;
+        case "inputShadowPapel":
+          r.style.setProperty("--shadow-papel", val);
+          break;
+      }
     }
   });
 
   $("#inputDoA").change(function () {
     const doa = $("#doaTxt");
     doa.text($("#inputDoA").val());
+  });
+
+  $("#inputCon").on("input", function () {
+    let r = document.querySelector(":root");
+    let conValue = $(this).val() + "%";
+    r.style.setProperty("--con-filtro", conValue);
+  });
+
+  $("#inputSat").on("input", function () {
+    let r = document.querySelector(":root");
+    let satValue = $(this).val() + "%";
+    r.style.setProperty("--sat-filtro", satValue);
+  });
+
+  $("#inputBlend").change(function () {
+    let r = document.querySelector(":root");
+    if ($(this).is(":checked")) {
+      r.style.setProperty("--blend-filtro", "multiply");
+    } else {
+      r.style.setProperty("--blend-filtro", "unset");
+    }
   });
 
   $("#inputRecompensa").on("input", function () {
@@ -87,6 +118,7 @@ document.addEventListener("DOMContentLoaded", function () {
     "#5e3c1a",
   ];
   let papel = ["#e5e4d8", "#fffef0", "#fffef1", "#d0cfc4"];
+
   var randomColors = [];
   for (let i = 0; i < info.length; i++) {
     randomColors.push(
@@ -104,7 +136,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const botao = document.querySelector(".image-buttons");
   const foto = document.querySelector("#foto-cartaz");
   const recompensa = document.querySelector(".recompensa h3");
-  const cPapel = document.querySelector("#papel");
+  let r = document.querySelector(":root");
   botao.addEventListener("click", (e) => {
     const targetNode = e.target.nodeName;
 
@@ -132,8 +164,8 @@ document.addEventListener("DOMContentLoaded", function () {
         randomColors[
           parseInt(targetClass.charAt(5) + targetClass.charAt(6))
         ].split("/");
-      cPapel.style.boxShadow = "0 0 125px" + colors[0] + "inset";
-      cPapel.style.backgroundColor = colors[1];
+      r.style.setProperty("--shadow-papel", colors[0]);
+      r.style.setProperty("--cor-papel", colors[1]);
     }
   });
 });
