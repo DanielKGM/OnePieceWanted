@@ -112,7 +112,7 @@ label {
   position: relative;
   width: 85.5%;
   height: 340px;
-  border: 3px solid var(--cor-letras);
+  border: 2.5px solid var(--cor-letras);
 }
 
 .foto img {
@@ -158,21 +158,28 @@ h3 {
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  padding: 40px 20px 20px 30px;
+  padding: 40px 25px;
   width: 550px;
   mask-image: url("https://res.cloudinary.com/ez-nettools/image/upload/v1635183100/parchment-hand-painted_zfdfpt.avif");
   mask-size: 100% 100%; /* Estica a máscara para caber dentro da div */
   mask-repeat: no-repeat; /* Não repete a máscara */
-  background-color: red;
+  background-color: var(--borda-papel);
 }
 
-#container::after {
-  z-index: -2;
+#shadowContainer {
+  position: relative;
+}
+
+#shadowContainer::before {
+  z-index: 0;
   content: "";
   position: absolute;
   box-shadow: 0 3px 20px rgba(0, 0, 0, var(--alphaShadow));
-  width: 100%;
-  height: 100%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 97%;
+  height: 97%;
 }
 
 #papel {
@@ -180,16 +187,15 @@ h3 {
   mask-image: url("https://res.cloudinary.com/ez-nettools/image/upload/v1635183100/parchment-hand-painted_zfdfpt.avif");
   mask-size: 100% 100%; /* Estica a máscara para caber dentro da div */
   mask-repeat: no-repeat; /* Não repete a máscara */
-  /*filter: url(#papelAnime);*/
+  filter: url(#papelAnime);
   /*-webkit-mask-image: url("https://res.cloudinary.com/ez-nettools/image/upload/v1635183100/parchment-hand-painted_zfdfpt.avif");
   -webkit-mask-size: 100% 100%;
   -webkit-mask-repeat: no-repeat;*/
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 80%; /* Defina uma largura apropriada */
-  height: 80%; /* Defina uma altura apropriada */
-  border: 2.5px solid var(--borda-papel);
+  top: 2.5px;
+  left: 2.5px;
+  margin: 0;
+  padding: 0;
   box-shadow: 0 0 125px var(--shadow-papel) inset;
 }
 

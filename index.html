@@ -186,59 +186,60 @@
         </div>
         <!-- FORMULARIO -->
       </div>
-      <div id="container">
-        <div id="papel"></div>
-        <div class="lines"></div>
-        <div class="titulo" id="containerTitulo">
-          <h1 id="placeholderTitulo">.</h1>
-          <h1 id="txtTitulo">WANTED</h1>
-        </div>
-        <div class="foto">
-          <img id="foto-cartaz" src="assets/eu.jpg" />
-        </div>
-        <div class="detalhes">
-          <div class="DoA">
-            <h3 id="doaTxt">DEAD OR ALIVE</h3>
+      <div id="shadowContainer">
+        <div id="container">
+          <div id="papel"></div>
+          <div class="lines"></div>
+          <div class="titulo" id="containerTitulo">
+            <h1 id="placeholderTitulo">.</h1>
+            <h1 id="txtTitulo">WANTED</h1>
           </div>
-          <div class="nome" id="containerNomes"></div>
-          <div class="recompensa">
-            <div class="berry"></div>
-            <h3>0</h3>
+          <div class="foto">
+            <img id="foto-cartaz" />
           </div>
-          <div class="info">
-            <p>
-              KONO SAKUHIN HA FICTION DETHUNODE JITSUZAISURU JINBUTSU DANTAI
-              SONOTA NO SOSHIKI TO DOITSU NO MEISOU GA GEKICHU NI TOUJYOU
-              SHITATOSHITEMO JITSUZAI NO MONOTAHA ISSAI MUKANKEIDETH.
-            </p>
-            <h3>MARINE</h3>
-          </div>
-          <div class="esquerdo">
-            <div class="um"></div>
-            <div class="dois"></div>
-          </div>
-          <div class="direito">
-            <div class="tres"></div>
-            <div class="quatro"></div>
+          <div class="detalhes">
+            <div class="DoA">
+              <h3 id="doaTxt">DEAD OR ALIVE</h3>
+            </div>
+            <div class="nome" id="containerNomes"></div>
+            <div class="recompensa">
+              <div class="berry"></div>
+              <h3>0</h3>
+            </div>
+            <div class="info">
+              <p>
+                KONO SAKUHIN HA FICTION DETHUNODE JITSUZAISURU JINBUTSU DANTAI
+                SONOTA NO SOSHIKI TO DOITSU NO MEISOU GA GEKICHU NI TOUJYOU
+                SHITATOSHITEMO JITSUZAI NO MONOTAHA ISSAI MUKANKEIDETH.
+              </p>
+              <h3>MARINE</h3>
+            </div>
+            <div class="esquerdo">
+              <div class="um"></div>
+              <div class="dois"></div>
+            </div>
+            <div class="direito">
+              <div class="tres"></div>
+              <div class="quatro"></div>
+            </div>
           </div>
         </div>
       </div>
     </main>
-    <!--
-      <svg>
-        <defs>
-          <filter id="papelAnime">
-            <feTurbulence
+
+    <svg>
+      <defs>
+        <filter id="papelAnime">
+          <feTurbulence
             type="fractalNoise"
             baseFrequency="0.02"
             result="turbulence"
             seed="2"
-            />
-            <feDisplacementMap in="SourceGraphic" in2="turbulence" scale="10" />
-            <feComposite operator="in" in2="SourceGraphic" />
-          </filter>
-        </defs>
-      </svg>
-      -->
+          />
+          <feDisplacementMap in="SourceGraphic" in2="turbulence" scale="10" />
+          <feComposite operator="in" in2="SourceGraphic" />
+        </filter>
+      </defs>
+    </svg>
   </body>
 </html>

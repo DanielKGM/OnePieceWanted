@@ -132,7 +132,7 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   // Nome Inicial
-  gerarNome("DANIELKGM", 20, 2);
+  gerarNome("NAMELESS", 20, 2);
   resize();
 
   var targetClass = "";
@@ -156,13 +156,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
       // Alterar Aparência do Cartaz
       risquinhos();
-      const filtro = document
-        .getElementById("papelAnime")
-        .querySelector("feTurbulence");
-      filtro.setAttribute(
-        "seed",
-        targetClass.charAt(5) + targetClass.charAt(6)
-      );
+
       let colors =
         randomColors[
           parseInt(targetClass.charAt(5) + targetClass.charAt(6))
@@ -250,10 +244,23 @@ function risquinhos() {
     }
   }
 
-  gerarRiscos(20, 0, 0, "horizontal", 80, 3, 2, false, container);
-  gerarRiscos(20, 0, 100, "horizontal", 80, 3, 2, true, container);
-  gerarRiscos(20, 0, 0, "vertical", 100, 2, 2, false, container);
-  gerarRiscos(20, 100, 0, "vertical", 100, 2, 2, true, container);
+  gerarRiscos(10, 0, 0, "horizontal", 80, 3, 2, false, container);
+  gerarRiscos(10, 0, 100, "horizontal", 80, 3, 2, true, container);
+  gerarRiscos(10, 0, 0, "vertical", 100, 3, 2, false, container);
+  gerarRiscos(10, 100, 0, "vertical", 100, 3, 2, true, container);
+  /*
+  (
+  quantidade, // QUANTIDADE DE RISCOS
+  top, // POSITION: ABSOLUTE
+  left, // POSITION: ABSOLUTE
+  orientacao, // "vertical" ou "horizontal"
+  rangeLinhas, // PORCENTAGEM QUE OS RISCOS PERCORREM DO CONTAINER
+  tamanhoLinha, // PORCENTAGEM DO TAMANHO DOS RISCOS EM RELAÇÃO AO CONTAINER
+  espessura, // ESPESSURA DOS RISCOS DO POSTER
+  inverter, // INVERTER EM RELAÇÃO AO EIXO DE SUA ORIENTAÇÃO
+  container
+  )
+  */
 }
 
 function efeitoNome(h1, div) {
@@ -277,8 +284,8 @@ function nomeResize(container, classeDivs) {
 function ScrollHeight() {
   const papel = document.querySelector("#papel");
   const container = document.querySelector("#container");
-  papel.style.height = container.offsetHeight + "px";
-  papel.style.width = container.offsetWidth + "px";
+  papel.style.height = container.offsetHeight - 5 + "px";
+  papel.style.width = container.offsetWidth - 5 + "px";
 }
 
 function abreviarNome(nomeCompleto) {
