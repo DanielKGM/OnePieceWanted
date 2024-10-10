@@ -423,12 +423,3 @@ h3 {
   position: absolute;
   background-color: var(--borda-papel);
 }
-
-.btn-circle.btn-lg {
-  width: 50px;
-  height: 50px;
-  padding: 10px 16px;
-  font-size: 18px;
-  line-height: 1.33;
-  border-radius: 25px;
-}
