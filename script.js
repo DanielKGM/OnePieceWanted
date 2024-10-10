@@ -248,19 +248,6 @@ function risquinhos() {
   gerarRiscos(10, 0, 100, "horizontal", 80, 3, 2, true, container);
   gerarRiscos(10, 0, 0, "vertical", 100, 3, 2, false, container);
   gerarRiscos(10, 100, 0, "vertical", 100, 3, 2, true, container);
-  /*
-  (
-  quantidade, // QUANTIDADE DE RISCOS
-  top, // POSITION: ABSOLUTE
-  left, // POSITION: ABSOLUTE
-  orientacao, // "vertical" ou "horizontal"
-  rangeLinhas, // PORCENTAGEM QUE OS RISCOS PERCORREM DO CONTAINER
-  tamanhoLinha, // PORCENTAGEM DO TAMANHO DOS RISCOS EM RELAÇÃO AO CONTAINER
-  espessura, // ESPESSURA DOS RISCOS DO POSTER
-  inverter, // INVERTER EM RELAÇÃO AO EIXO DE SUA ORIENTAÇÃO
-  container
-  )
-  */
 }
 
 function efeitoNome(h1, div) {

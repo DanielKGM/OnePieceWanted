@@ -14,10 +14,10 @@
   --cor-papel: #fffef0;
   --shadow-papel: #8f5922;
   --textura: url("assets/textura.png");
+  --shape-papel: url("assets/bordas.avif");
 }
 
 body {
-  font-family: "Times New Roman", Times, serif;
   padding: 0;
   margin: 0;
   max-width: 100vw;
@@ -43,6 +43,20 @@ main {
   align-items: center;
   overflow: auto;
   padding: 50px;
+}
+
+.input-cor {
+  display: inline;
+  padding: 0;
+  border-radius: 80%;
+  width: 40px;
+  height: 40px;
+  border: 0px solid white;
+}
+
+input,
+select {
+  margin-bottom: 10px;
 }
 
 /* WRAPPER CONFIGS */
@@ -150,6 +164,7 @@ h3 {
 }
 
 #container {
+  font-family: "Times New Roman", Times, serif;
   color: var(--cor-letras);
   z-index: +1;
   position: relative;
@@ -160,7 +175,7 @@ h3 {
   align-items: center;
   padding: 40px 25px;
   width: 550px;
-  mask-image: url("https://res.cloudinary.com/ez-nettools/image/upload/v1635183100/parchment-hand-painted_zfdfpt.avif");
+  mask-image: var(--shape-papel);
   mask-size: 100% 100%; /* Estica a máscara para caber dentro da div */
   mask-repeat: no-repeat; /* Não repete a máscara */
   background-color: var(--borda-papel);
@@ -184,13 +199,13 @@ h3 {
 
 #papel {
   z-index: -1;
-  mask-image: url("https://res.cloudinary.com/ez-nettools/image/upload/v1635183100/parchment-hand-painted_zfdfpt.avif");
+  mask-image: var(--shape-papel);
   mask-size: 100% 100%; /* Estica a máscara para caber dentro da div */
   mask-repeat: no-repeat; /* Não repete a máscara */
   filter: url(#papelAnime);
-  /*-webkit-mask-image: url("https://res.cloudinary.com/ez-nettools/image/upload/v1635183100/parchment-hand-painted_zfdfpt.avif");
+  -webkit-mask-image: var(--shape-papel);
   -webkit-mask-size: 100% 100%;
-  -webkit-mask-repeat: no-repeat;*/
+  -webkit-mask-repeat: no-repeat;
   position: absolute;
   top: 2.5px;
   left: 2.5px;
@@ -290,10 +305,8 @@ h3 {
   height: 100%;
   width: 10%;
   margin-right: 10px;
-  -webkit-mask: url("https://upload.wikimedia.org/wikipedia/commons/f/fa/Berrysymbol.svg")
-    center/100% 100%;
-  mask: url("https://upload.wikimedia.org/wikipedia/commons/f/fa/Berrysymbol.svg")
-    center/100% 100%;
+  -webkit-mask: url("assets/berry.svg") center/100% 100%;
+  mask: url("assets/berry.svg") center/100% 100%;
   -webkit-mask-repeat: no-repeat;
   mask-repeat: no-repeat;
 }
@@ -409,4 +422,13 @@ h3 {
 .line {
   position: absolute;
   background-color: var(--borda-papel);
+}
+
+.btn-circle.btn-lg {
+  width: 50px;
+  height: 50px;
+  padding: 10px 16px;
+  font-size: 18px;
+  line-height: 1.33;
+  border-radius: 25px;
 }

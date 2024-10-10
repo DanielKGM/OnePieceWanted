@@ -55,32 +55,23 @@
           <input type="image" class="foto-17" src="assets/gate.png" />
         </div>
 
-        <div id="formulario" class="container-fluid">
+        <div id="formulario" class="text-center">
           <form>
-            <div class="input-group">
-              <span class="input-group-text">
-                <i class="fas fa-user"></i>
-              </span>
-              <input
-                type="text"
-                id="inputNome"
-                maxlength="40"
-                placeholder="Name"
-                class="form-control"
-              />
-            </div>
-            <div class="input-group">
-              <span class="input-group-text">
-                <i class="fas fa-dollar"></i>
-              </span>
-              <input
-                type="number"
-                id="inputRecompensa"
-                max="999999999999"
-                placeholder="Bounty"
-                class="form-control"
-              />
-            </div>
+            <input
+              type="text"
+              id="inputNome"
+              maxlength="40"
+              placeholder="Name"
+              class="form-control"
+            />
+
+            <input
+              type="number"
+              id="inputRecompensa"
+              max="999999999999"
+              placeholder="Bounty"
+              class="form-control"
+            />
 
             <select class="form-select" id="inputDoA">
               <option value="DEAD OR ALIVE" selected>DEAD OR ALIVE</option>
@@ -93,7 +84,7 @@
               id="imgUpload"
               accept=".png, .jpg, .jpeg"
             />
-            <div class="form-check form-switch">
+            <div class="form-check-inline form-switch">
               <input
                 id="inputPapel"
                 type="checkbox"
@@ -102,11 +93,9 @@
                 checked="true"
                 value="SP"
               />
-              <label class="form-check-label" for="inputPapel"
-                >Show Paper?</label
-              >
+              <label class="form-check-label" for="inputPapel">Paper</label>
             </div>
-            <div class="form-check form-switch">
+            <div class="form-check-inline form-switch">
               <input
                 id="inputAbreviacoes"
                 type="checkbox"
@@ -116,10 +105,10 @@
                 value="AN"
               />
               <label class="form-check-label" for="inputAbreviacoes"
-                >Abbreviate Name?</label
+                >Abbreviate</label
               >
             </div>
-            <div class="form-check form-switch">
+            <div class="form-check-inline form-switch">
               <input
                 id="inputBlend"
                 type="checkbox"
@@ -128,11 +117,11 @@
                 checked="true"
               />
               <label class="form-check-label" for="inputAbreviacoes"
-                >Blend Picture?</label
+                >Blend</label
               >
             </div>
 
-            <div class="form-check form-switch">
+            <div class="form-check-inline form-switch">
               <input
                 id="inputTexture"
                 type="checkbox"
@@ -141,9 +130,10 @@
                 checked="true"
               />
               <label class="form-check-label" for="inputAbreviacoes"
-                >Texturize Paper?</label
+                >Texture</label
               >
             </div>
+            <br />
 
             <input
               type="color"
@@ -151,6 +141,7 @@
               class="input-cor form-control form-control-color"
               title="Text color"
             />
+
             <input
               type="color"
               id="inputCorPapel"
@@ -182,6 +173,21 @@
               value="70"
               id="inputSat"
             />
+            <button
+              type="button"
+              id="downloadBtn"
+              disabled
+              class="btn btn-success btn-circle btn-lg"
+            >
+              <i class="fa fa-arrow-down"></i>
+            </button>
+            <button
+              id="undoBtn"
+              type="button"
+              class="btn btn-primary btn-circle btn-lg"
+            >
+              <i class="fa fa-undo"></i>
+            </button>
           </form>
         </div>
         <!-- FORMULARIO -->
