@@ -56,155 +56,135 @@
         </div>
 
         <div id="formulario">
+          <button
+            type="button"
+            class="btn-close mb-3"
+            aria-label="Close"
+          ></button>
           <form>
-            <fieldset class="row mb-3">
-              <legend class="col-form-label col-sm-2 pt-0">
-                <strong>DETAILS</strong>
-              </legend>
-              <div class="col-sm-10">
-                <input
-                  type="text"
-                  id="inputNome"
-                  maxlength="40"
-                  placeholder="Name"
-                  class="form-control"
-                />
+            <input
+              type="text"
+              id="inputNome"
+              maxlength="40"
+              placeholder="Name"
+              class="form-control"
+            />
 
-                <input
-                  type="number"
-                  id="inputRecompensa"
-                  max="999999999999"
-                  placeholder="Bounty"
-                  class="form-control"
-                />
+            <input
+              type="number"
+              id="inputRecompensa"
+              max="999999999999"
+              placeholder="Bounty"
+              class="form-control"
+            />
 
-                <select class="form-select" id="inputDoA">
-                  <option value="DEAD OR ALIVE" selected>DEAD OR ALIVE</option>
-                  <option value="ONLY ALIVE">ONLY ALIVE</option>
-                  <option value="ONLY DEAD">ONLY DEAD</option>
-                </select>
-              </div>
-            </fieldset>
-            <fieldset class="row mb-3">
-              <legend class="col-form-label col-sm-2 pt-0">
-                <strong>PICTURE</strong>
-              </legend>
-              <div class="col-sm-10">
-                <input
-                  class="form-control"
-                  type="file"
-                  id="imgUpload"
-                  accept=".png, .jpg, .jpeg"
-                />
-                <label for="inputCon" class="form-label">Contrast</label>
-                <input
-                  type="range"
-                  class="form-range"
-                  min="0"
-                  max="100"
-                  step="1"
-                  value="85"
-                  id="inputCon"
-                />
-                <label for="inputSat" class="form-label">Saturation</label>
-                <input
-                  type="range"
-                  class="form-range"
-                  min="0"
-                  step="1"
-                  max="100"
-                  value="70"
-                  id="inputSat"
-                />
-              </div>
-            </fieldset>
-            <fieldset class="row mb-3">
-              <legend class="col-form-label col-sm-2 pt-0">
-                <strong>OTHER</strong>
-              </legend>
-              <div class="col-sm-10">
-                <div class="form-check form-switch">
-                  <input
-                    id="inputAbreviacoes"
-                    type="checkbox"
-                    role="switch"
-                    class="form-check-input cfgSelect"
-                    checked="true"
-                    value="AN"
-                  />
-                  <label class="form-check-label" for="inputAbreviacoes"
-                    >Abbreviations</label
-                  >
-                </div>
+            <select class="form-select" id="inputDoA">
+              <option value="DEAD OR ALIVE" selected>DEAD OR ALIVE</option>
+              <option value="ONLY ALIVE">ONLY ALIVE</option>
+              <option value="ONLY DEAD">ONLY DEAD</option>
+            </select>
 
-                <div class="form-check form-switch">
-                  <input
-                    id="inputPapel"
-                    type="checkbox"
-                    role="switch"
-                    class="form-check-input cfgSelect"
-                    checked="true"
-                    value="SP"
-                  />
-                  <label class="form-check-label" for="inputPapel">Paper</label>
-                </div>
+            <input
+              class="form-control"
+              type="file"
+              id="imgUpload"
+              accept=".png, .jpg, .jpeg"
+            />
+            <label for="inputCon" class="form-label">Contrast (85%)</label>
+            <input
+              type="range"
+              class="form-range"
+              min="0"
+              max="100"
+              step="1"
+              value="85"
+              id="inputCon"
+            />
+            <label for="inputSat" class="form-label">Saturation (70%)</label>
+            <input
+              type="range"
+              class="form-range"
+              min="0"
+              step="1"
+              max="100"
+              value="70"
+              id="inputSat"
+            />
 
-                <div class="form-check form-switch">
-                  <input
-                    id="inputBlend"
-                    type="checkbox"
-                    role="switch"
-                    class="form-check-input cfgSelect"
-                    checked="true"
-                  />
-                  <label class="form-check-label" for="inputAbreviacoes"
-                    >Blend</label
-                  >
-                </div>
+            <div class="form-check form-switch">
+              <input
+                id="inputAbreviacoes"
+                type="checkbox"
+                role="switch"
+                class="form-check-input cfgSelect"
+                checked="true"
+                value="AN"
+              />
+              <label class="form-check-label" for="inputAbreviacoes"
+                >Abbreviations</label
+              >
+            </div>
 
-                <div class="form-check form-switch">
-                  <input
-                    id="inputTexture"
-                    type="checkbox"
-                    role="switch"
-                    class="form-check-input cfgSelect"
-                    checked="true"
-                  />
-                  <label class="form-check-label" for="inputAbreviacoes"
-                    >Texture</label
-                  >
-                </div>
-              </div>
-            </fieldset>
-            <fieldset class="row mb-3">
-              <legend class="col-form-label col-sm-2 pt-0">
-                <strong>COLORS</strong>
-              </legend>
-              <div class="col-sm-10">
-                <input
-                  type="color"
-                  id="inputCor"
-                  class="input-cor form-control form-control-color"
-                  title="Text color"
-                  value="#462b18"
-                />
+            <div class="form-check form-switch">
+              <input
+                id="inputPapel"
+                type="checkbox"
+                role="switch"
+                class="form-check-input cfgSelect"
+                checked="true"
+                value="SP"
+              />
+              <label class="form-check-label" for="inputPapel">Paper</label>
+            </div>
 
-                <input
-                  type="color"
-                  id="inputCorPapel"
-                  class="input-cor form-control form-control-color"
-                  title="Paper color"
-                  value="#fffef0"
-                />
-                <input
-                  type="color"
-                  id="inputShadowPapel"
-                  class="input-cor form-control form-control-color"
-                  title="Paper shadow"
-                  value="#8f5922"
-                />
-              </div>
-            </fieldset>
+            <div class="form-check form-switch">
+              <input
+                id="inputBlend"
+                type="checkbox"
+                role="switch"
+                class="form-check-input cfgSelect"
+                checked="true"
+              />
+              <label class="form-check-label" for="inputAbreviacoes"
+                >Blend</label
+              >
+            </div>
+
+            <div class="form-check form-switch">
+              <input
+                id="inputTexture"
+                type="checkbox"
+                role="switch"
+                class="form-check-input cfgSelect"
+                checked="true"
+              />
+              <label class="form-check-label" for="inputAbreviacoes"
+                >Texture</label
+              >
+            </div>
+
+            <input
+              type="color"
+              id="inputCor"
+              class="input-cor form-control form-control-color"
+              title="Text color"
+              value="#462b18"
+            />
+
+            <input
+              type="color"
+              id="inputCorPapel"
+              class="input-cor form-control form-control-color"
+              title="Paper color"
+              value="#fffef0"
+            />
+            <input
+              type="color"
+              id="inputShadowPapel"
+              class="input-cor form-control form-control-color"
+              title="Paper shadow"
+              value="#8f5922"
+            />
           </form>
         </div>
         <!-- FORMULARIO -->

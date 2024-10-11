@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
   // Eventos de leitura de dados do formulário
-  $(".cfgSelect").change(function () {
+  $("#inputPapel").change(function () {
     let opt = $(this).val();
     if ($(this).val() == "SP") {
       togglePapel();
@@ -45,12 +45,14 @@ document.addEventListener("DOMContentLoaded", function () {
   $("#inputCon").on("input", function () {
     let r = document.querySelector(":root");
     let conValue = $(this).val() + "%";
+    $("label[for='inputCon']").text("Contrast (" + conValue + ")");
     r.style.setProperty("--con-filtro", conValue);
   });
 
   $("#inputSat").on("input", function () {
     let r = document.querySelector(":root");
     let satValue = $(this).val() + "%";
+    $("label[for='inputSat']").text("Saturation (" + satValue + ")");
     r.style.setProperty("--sat-filtro", satValue);
   });
 
@@ -170,18 +172,15 @@ document.addEventListener("DOMContentLoaded", function () {
 function togglePapel() {
   let papel = $("#papel");
   let r = document.querySelector(":root");
+
   if (papel.is(":hidden")) {
     papel.show();
+    r.style.setProperty("--borda-papel", $("#inputCor").val());
     r.style.setProperty("--alphaShadow", "0.6");
-    r.style.setProperty("--blend-filtro", "multiply");
-    r.style.setProperty("--con-filtro", "85%");
-    r.style.setProperty("--sat-filtro", "70%");
   } else {
     papel.hide();
+    r.style.setProperty("--borda-papel", "rgba(0,0,0,0)");
     r.style.setProperty("--alphaShadow", "0");
-    r.style.setProperty("--blend-filtro", "none");
-    r.style.setProperty("--con-filtro", "100%");
-    r.style.setProperty("--sat-filtro", "100%");
   }
 }
 
