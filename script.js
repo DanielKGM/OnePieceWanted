@@ -27,7 +27,9 @@ document.addEventListener("DOMContentLoaded", function () {
       let undo;
       switch ($(this).attr("id")) {
         case "inputCor":
-          r.style.setProperty("--borda-papel", val);
+          if (!$("#papel").is(":hidden")) {
+            r.style.setProperty("--borda-papel", val);
+          }
           r.style.setProperty("--cor-letras", val);
           undo = $("#undoCor");
           break;
