@@ -1,5 +1,5 @@
 # OnePieceWanted
-A simple CSS and JavaScript generator for One Piece wanted posters that you can download and customize. All character images are created by [Bryanfavr](https://www.deviantart.com/bryanfavr)
+A simple CSS and JavaScript generator for One Piece wanted posters that you can customize and download. All character images are created by [Bryanfavr](https://www.deviantart.com/bryanfavr)
 
 # [Live Demo](https://danielkgm.github.io/OnePieceWanted/)
 
