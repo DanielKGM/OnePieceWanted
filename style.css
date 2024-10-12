@@ -45,21 +45,21 @@ main {
   gap: 30px;
 }
 
-@media screen and (max-width: 928px) {
+@media screen and (max-width: 1060px) {
   #wrapperConfigs {
-    width: 100% !important;
+    width: 550px !important;
     max-width: unset !important;
-    flex-direction: row !important;
+    flex-direction: column !important;
     flex-wrap: nowrap !important;
     order: 1 !important;
   }
 
   .image-buttons {
-    width: 30% !important;
+    width: 100% !important;
   }
 
   #formulario {
-    width: 50% !important;
+    width: 100% !important;
   }
 }
 
