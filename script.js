@@ -7,6 +7,10 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
+  $("#btnDownload").on("click", function () {
+    download();
+  });
+
   $("#imgUpload").on("input", function () {
     readURL(this);
   });
@@ -20,21 +24,57 @@ document.addEventListener("DOMContentLoaded", function () {
     let val = $(this).val();
     if (/^#[0-9A-F]{6}$/i.test(val)) {
       let r = document.querySelector(":root");
-      let variavelCSS;
-
+      let undo;
       switch ($(this).attr("id")) {
         case "inputCor":
           r.style.setProperty("--borda-papel", val);
           r.style.setProperty("--cor-letras", val);
+          undo = $("#undoCor");
           break;
         case "inputCorPapel":
           r.style.setProperty("--cor-papel", val);
+          undo = $("#undoCorPapel");
           break;
         case "inputShadowPapel":
           r.style.setProperty("--shadow-papel", val);
+          undo = $("#undoShadowPapel");
           break;
       }
+      if (undo.is(":hidden")) {
+        undo.show();
+      }
     }
+  });
+
+  $(".undo").on("click", function (event) {
+    event.preventDefault();
+    let r = document.querySelector(":root");
+    switch ($(this).attr("id")) {
+      case "undoCon":
+        r.style.setProperty("--con-filtro", "85%");
+        $("#infocon").text("Contrast (85%)");
+        $("#inputCon").val("85");
+        break;
+      case "undoSat":
+        r.style.setProperty("--sat-filtro", "70%");
+        $("#infosat").text("Saturation (70%)");
+        $("#inputSat").val("70");
+        break;
+      case "undoCor":
+        r.style.setProperty("--borda-papel", "#462b18");
+        r.style.setProperty("--cor-letras", "#462b18");
+        $("#inputCor").val("#462b18");
+        break;
+      case "undoCorPapel":
+        r.style.setProperty("--cor-papel", "#fffef0");
+        $("#inputCorPapel").val("#fffef0");
+        break;
+      case "undoShadowPapel":
+        r.style.setProperty("--shadow-papel", "#8f5922");
+        $("#inputShadowPapel").val("#8f5922");
+        break;
+    }
+    $(this).hide();
   });
 
   $("#inputDoA").change(function () {
@@ -45,14 +85,22 @@ document.addEventListener("DOMContentLoaded", function () {
   $("#inputCon").on("input", function () {
     let r = document.querySelector(":root");
     let conValue = $(this).val() + "%";
-    $("label[for='inputCon']").text("Contrast (" + conValue + ")");
+    let undoCon = $("#undoCon");
+    $("#infocon").text("Contrast (" + conValue + ") ");
     r.style.setProperty("--con-filtro", conValue);
+    if (undoCon.is(":hidden")) {
+      undoCon.show();
+    }
   });
 
   $("#inputSat").on("input", function () {
     let r = document.querySelector(":root");
     let satValue = $(this).val() + "%";
-    $("label[for='inputSat']").text("Saturation (" + satValue + ")");
+    let undoSat = $("#undoSat");
+    $("#infosat").text("Saturation (" + satValue + ") ");
+    if (undoSat.is(":hidden")) {
+      undoSat.show();
+    }
     r.style.setProperty("--sat-filtro", satValue);
   });
 
@@ -135,7 +183,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Nome Inicial
   gerarNome("NAMELESS", 20, 2);
-  resize();
 
   var targetClass = "";
   const botao = document.querySelector(".image-buttons");
@@ -168,6 +215,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 });
+
 ////////////
 function togglePapel() {
   let papel = $("#papel");
@@ -222,6 +270,7 @@ function animateValue(obj, end, duration) {
 }
 
 window.addEventListener("resize", resize);
+window.addEventListener("load", resize);
 
 function resize() {
   // REDIMENSIONA O PAPEL
@@ -243,8 +292,8 @@ function risquinhos() {
     }
   }
 
-  gerarRiscos(10, 0, 0, "horizontal", 80, 3, 2, false, container);
-  gerarRiscos(10, 0, 100, "horizontal", 80, 3, 2, true, container);
+  gerarRiscos(15, 0, 0, "horizontal", 100, 3, 2, false, container);
+  gerarRiscos(15, 0, 100, "horizontal", 100, 3, 2, true, container);
   gerarRiscos(10, 0, 0, "vertical", 100, 3, 2, false, container);
   gerarRiscos(10, 100, 0, "vertical", 100, 3, 2, true, container);
 }
@@ -283,7 +332,7 @@ function abreviarNome(nomeCompleto) {
           ? palavra
           : palavra.charAt(0)
       )
-      .join(palavras.length > 2 ? " • " : " ");
+      .join(palavras.length > 2 ? " • " : " ");
   }
   return nomeCompleto;
 }
@@ -389,22 +438,31 @@ function gerarRiscos(
     const line = document.createElement("div");
     const random = Math.random();
     line.className = "line";
-    container.appendChild(line);
 
     if (orientacao === "vertical") {
-      line.style.width = `${espessura * random}px`;
+      line.classList.add("vertical"); // Adiciona a classe "vertical" se for o caso
+      line.style.width = `${1 + espessura * Math.random()}px`;
       line.style.height = `${tamanhoLinha * Math.random()}%`;
       line.style.left = `${left + rangeLinhas * random}%`;
       line.style.top = `${top}%`;
     } else {
-      line.style.height = `${espessura * random}px`;
+      line.style.height = `${1 + espessura * Math.random()}px`;
       line.style.width = `${tamanhoLinha * Math.random()}%`;
       line.style.top = `${top + rangeLinhas * random}%`;
       line.style.left = `${left}%`;
     }
+
     if (inverter) {
       line.style.transform = "rotate(180deg)";
       line.style.transformOrigin = "top left";
     }
+
+    container.appendChild(line);
   }
+}
+
+function download() {
+  domtoimage.toBlob(document.getElementById("container")).then(function (blob) {
+    window.saveAs(blob, "wanted.png");
+  });
 }

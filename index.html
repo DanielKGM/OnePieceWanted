@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Meu Projeto</title>
+    <title>One Piece Posters</title>
     <!-- Bootstrap CSS -->
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
@@ -26,11 +26,23 @@
     <link
       href="https://fonts.googleapis.com/css?family=Annie Use Your Telescope"
       rel="stylesheet"
+      crossorigin="anonymous"
     />
   </head>
   <body>
+    <span style="position: absolute; right: 10px; bottom: 10px">
+      Website by
+      <a
+        style="text-decoration: none"
+        href="https://github.com/DanielKGM"
+        target="_blank"
+        >DanielKGM</a
+      >
+    </span>
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+    <script src="dom-to-image.js"></script>
+    <script src="FileSaver.js"></script>
     <script src="script.js"></script>
     <main>
       <div id="wrapperConfigs">
@@ -55,12 +67,7 @@
           <input type="image" class="foto-17" src="assets/gate.png" />
         </div>
 
-        <div id="formulario">
-          <button
-            type="button"
-            class="btn-close mb-3"
-            aria-label="Close"
-          ></button>
+        <div id="formulario" class="text-center">
           <form>
             <input
               type="text"
@@ -90,28 +97,42 @@
               id="imgUpload"
               accept=".png, .jpg, .jpeg"
             />
-            <label for="inputCon" class="form-label">Contrast (85%)</label>
-            <input
-              type="range"
-              class="form-range"
-              min="0"
-              max="100"
-              step="1"
-              value="85"
-              id="inputCon"
-            />
-            <label for="inputSat" class="form-label">Saturation (70%)</label>
-            <input
-              type="range"
-              class="form-range"
-              min="0"
-              step="1"
-              max="100"
-              value="70"
-              id="inputSat"
-            />
+            <div class="row">
+              <div class="col-md-6">
+                <label for="inputCon" class="form-label"
+                  ><span id="infocon">Contrast (85%)</span
+                  ><a id="undoCon" href="" class="undo"
+                    ><i class="fa fa-undo"></i></a
+                ></label>
+                <input
+                  type="range"
+                  class="form-range"
+                  min="0"
+                  max="100"
+                  step="1"
+                  value="85"
+                  id="inputCon"
+                />
+              </div>
+              <div class="col-md-6">
+                <label for="inputSat" class="form-label"
+                  ><span id="infosat">Saturation (70%)</span
+                  ><a id="undoSat" href="" class="undo"
+                    ><i class="fa fa-undo"></i></a
+                ></label>
+                <input
+                  type="range"
+                  class="form-range"
+                  min="0"
+                  step="1"
+                  max="100"
+                  value="70"
+                  id="inputSat"
+                />
+              </div>
+            </div>
 
-            <div class="form-check form-switch">
+            <div class="form-check-inline form-switch">
               <input
                 id="inputAbreviacoes"
                 type="checkbox"
@@ -121,11 +142,11 @@
                 value="AN"
               />
               <label class="form-check-label" for="inputAbreviacoes"
-                >Abbreviations</label
+                >Dots</label
               >
             </div>
 
-            <div class="form-check form-switch">
+            <div class="form-check-inline form-switch">
               <input
                 id="inputPapel"
                 type="checkbox"
@@ -137,7 +158,7 @@
               <label class="form-check-label" for="inputPapel">Paper</label>
             </div>
 
-            <div class="form-check form-switch">
+            <div class="form-check-inline form-switch">
               <input
                 id="inputBlend"
                 type="checkbox"
@@ -150,7 +171,7 @@
               >
             </div>
 
-            <div class="form-check form-switch">
+            <div class="form-check-inline form-switch">
               <input
                 id="inputTexture"
                 type="checkbox"
@@ -162,29 +183,42 @@
                 >Texture</label
               >
             </div>
-
-            <input
-              type="color"
-              id="inputCor"
-              class="input-cor form-control form-control-color"
-              title="Text color"
-              value="#462b18"
-            />
-
-            <input
-              type="color"
-              id="inputCorPapel"
-              class="input-cor form-control form-control-color"
-              title="Paper color"
-              value="#fffef0"
-            />
-            <input
-              type="color"
-              id="inputShadowPapel"
-              class="input-cor form-control form-control-color"
-              title="Paper shadow"
-              value="#8f5922"
-            />
+            <br />
+            <div class="mt-3">
+              <input
+                type="color"
+                id="inputCor"
+                class="input-cor form-control form-control-color"
+                title="Text color"
+                value="#462b18"
+              />
+              <a id="undoCor" href="" class="undo"
+                ><i class="fa fa-undo"></i
+              ></a>
+              <input
+                type="color"
+                id="inputCorPapel"
+                class="input-cor form-control form-control-color"
+                title="Paper color"
+                value="#fffef0"
+              />
+              <a id="undoCorPapel" href="" class="undo"
+                ><i class="fa fa-undo"></i
+              ></a>
+              <input
+                type="color"
+                id="inputShadowPapel"
+                class="input-cor form-control form-control-color"
+                title="Paper shadow"
+                value="#8f5922"
+              />
+              <a id="undoShadowPapel" href="" class="undo"
+                ><i class="fa fa-undo"></i
+              ></a>
+            </div>
+            <button type="button" id="btnDownload" class="mt-3 btn btn-success">
+              <i class="fa fa-arrow-down"></i> Download .png
+            </button>
           </form>
         </div>
         <!-- FORMULARIO -->
@@ -198,7 +232,7 @@
             <h1 id="txtTitulo">WANTED</h1>
           </div>
           <div class="foto">
-            <img id="foto-cartaz" />
+            <img id="foto-cartaz" src="assets/noimage.jpg" />
           </div>
           <div class="detalhes">
             <div class="DoA">
@@ -229,20 +263,5 @@
         </div>
       </div>
     </main>
-
-    <svg>
-      <defs>
-        <filter id="papelAnime">
-          <feTurbulence
-            type="fractalNoise"
-            baseFrequency="0.02"
-            result="turbulence"
-            seed="2"
-          />
-          <feDisplacementMap in="SourceGraphic" in2="turbulence" scale="10" />
-          <feComposite operator="in" in2="SourceGraphic" />
-        </filter>
-      </defs>
-    </svg>
   </body>
 </html>
