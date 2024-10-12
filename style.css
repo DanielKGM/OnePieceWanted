@@ -45,6 +45,24 @@ main {
   gap: 30px;
 }
 
+@media screen and (max-width: 928px) {
+  #wrapperConfigs {
+    width: 100% !important;
+    max-width: unset !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    order: 1 !important;
+  }
+
+  .image-buttons {
+    width: 30% !important;
+  }
+
+  #formulario {
+    width: 50% !important;
+  }
+}
+
 .input-cor {
   display: inline;
   padding: 0;

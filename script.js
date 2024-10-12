@@ -63,7 +63,9 @@ document.addEventListener("DOMContentLoaded", function () {
         $("#inputSat").val("70");
         break;
       case "undoCor":
-        r.style.setProperty("--borda-papel", "#462b18");
+        if (!$("#papel").is(":hidden")) {
+          r.style.setProperty("--borda-papel", "#462b18");
+        }
         r.style.setProperty("--cor-letras", "#462b18");
         $("#inputCor").val("#462b18");
         break;
